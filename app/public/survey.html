@@ -151,7 +151,7 @@
 		</footer>	
 	</div>		
 
-	<!-- 	Modal -->
+	<!-- Results Modal -->
 	<div id="resultsModal" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -170,6 +170,24 @@
 		</div>
 	</div>					
 
+	<!-- Alert Modal for form validation -->
+	<div id="alertModal" class="modal fade" role="dialog">
+ 		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Oh No!</h4>
+      			</div>
+      			<div class="modal-body">
+        			<p>Please fill out all the fields before submitting the survey!</p>
+      			</div>
+      			<div class="modal-footer">
+        			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      			</div>
+    		</div>
+
+		</div>
+	</div>
 
 	<!-- Start Javascript -->
 	<script type="text/javascript">
@@ -229,10 +247,14 @@
 						//show modal with match
 						$("#resultsModal").modal("toggle");
 
+						//Clear Survey
+						$(".form-control").val("");
+						$(".chosen-select").val("");
+
 					});
 
 				} else {
-					alert("Please fill out all the fields before submitting!");
+					$("#alertModal").modal("toggle");
 				}	
 			});
 		});
